@@ -1,0 +1,42 @@
+---
+import { storeLang } from '../stores/store';
+import { headerList } from '../data/header-list';
+
+// 言語を取得
+const lang = storeLang.get();
+---
+
+<header>
+	<nav>
+		<ul>
+			{headerList.map((item) => (
+				<li>
+					<a href={item[lang].href}>{item[lang].text}</a>
+				</li>
+			))}
+		</ul>
+	</nav>
+</header>
+
+
+<style>
+	header {
+		background-color: #f2f2f2;
+		padding: 16px;
+	}
+
+	nav ul {
+		list-style: none;
+		display: flex;
+		gap: 16px;
+	}
+
+	nav a {
+		text-decoration: none;
+		color: #007bff;
+	}
+
+	nav a:hover {
+		text-decoration: underline;
+	}
+</style>
